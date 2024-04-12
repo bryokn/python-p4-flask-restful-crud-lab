@@ -61,9 +61,9 @@ class UpdatePlant(Resource):
             plant.is_in_stock = data['is_in_stock']
         
         db.session.commit()
-        return make_response(plant.to_dict(), 200)
+        return make_response(jsonify(plant.to_dict()), 200)
     
-api.add_resource(UpdatePlant, '/plant/<int:id>')
+api.add_resource(UpdatePlant, '/plants/<int:id>')
 
 class DeletePlant(Resource):
     def delete(self, id):
